@@ -11,5 +11,14 @@ pipeline{
                 echo "Welcome" >> index.txt
             }
         }
+        stage("rolling"){
+            steps{
+                sh '''
+                     echo "run" >> index.txt
+                     cat index.txt
+                   
+                   '''
+            }
+        }
     }
 }
