@@ -9,14 +9,14 @@ pipeline {
         stage("checkout something") {
             steps {
                 sh '''
-                    echo "Welcome" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
+                    sudo echo "Welcome" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
                 '''
             }
         }
         stage("rolling") {
             steps {
                 sh '''
-                    echo "gotcha" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
+                    sudo echo "gotcha" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
                     cat /home/cyclobold-computer-3/jenkins-app-test/index.txt
                 '''
             }
