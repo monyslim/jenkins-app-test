@@ -14,7 +14,7 @@ pipeline{
         stage("rolling"){
             steps{
                 sh '''
-                     echo "run" >> index.txt
+                     echo "gotcha" >> index.txt
                      cat index.txt
                    
                    '''
