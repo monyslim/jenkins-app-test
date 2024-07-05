@@ -6,5 +6,10 @@ pipeline{
                 echo "Welcome to Your first class using Jenkins"
             }
         }
+        stage("checkout something"){
+            steps{
+                echo "Welcome" >> index.txt
+            }
+        }
     }
 }
