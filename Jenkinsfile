@@ -8,15 +8,14 @@ pipeline{
         }
         stage("checkout something"){
             steps{
-                echo "Welcome" >> index.txt
+                echo "Welcome" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
             }
         }
         stage("rolling"){
             steps{
                 sh '''
-                     echo "gotcha" >> index.txt
+                     echo "gotcha" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
                      cat index.txt
-                   
                    '''
             }
         }
