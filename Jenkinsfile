@@ -36,7 +36,7 @@ pipeline {
         stage("build"){
             steps{
                 sh '''
-                    sudo chown -R jenkins:jenkins */var 
+                    sudo chown -R jenkins:jenkins /var*
                     cd /var
                     sudo rm -rf www
                     sudo mkdir www
