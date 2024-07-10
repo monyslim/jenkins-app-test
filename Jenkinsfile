@@ -9,7 +9,7 @@ pipeline {
         stage("checkout something") {
             steps {
                 sh '''
-                    echo "Welcome" >> index.txt
+                    echo "Welcome" > index.txt
                 '''
             }
         }
@@ -18,6 +18,7 @@ pipeline {
                 sh '''
                     echo $HOME
                     pwd
+                    echo "Hello World" > taller.txt
                 '''
             }
         }
