@@ -9,7 +9,7 @@ pipeline {
         stage("checkout something") {
             steps {
                 sh '''
-                    echo "Welcome" >> /home/cyclobold-computer-3/jenkins-app-test/index.txt
+                    echo "Welcome" >> index.txt
                 '''
             }
         }
