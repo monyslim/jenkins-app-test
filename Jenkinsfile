@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("Test") {
             steps {
-                echo "Welcome to Your first class using Jenkins"
+                echo "Welcome to Your first Multibranch Jenkins-class"
             }
         }
         stage("checkout something") {
