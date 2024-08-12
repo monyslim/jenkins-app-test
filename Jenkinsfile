@@ -22,36 +22,5 @@ pipeline {
                 '''
             }
         }
-        stage("install nginx"){
-            steps {
-                sh '''
-                    sudo apt-get update
-                    sudo apt upgrade -y
-                    sudo apt-get install nginx -y
-                    sudo systemctl enable nginx
-                    sudo systemctl start nginx
-                '''
-            }
-        }
-        stage("build"){
-            steps{
-                sh '''
-                    sudo chown -R jenkins:jenkins /var*
-                    cd /var
-                    sudo rm -rf www
-                    sudo mkdir www
-                    cd /var/www
-
-                '''
-            }
-        }
-        stage("deploy"){
-            steps{
-                sh '''
-                    cd /var/www/html
-                    sudo git clone https://github.com/monyslim/pix-mix.git /html
-                '''
-            }
-        }
     }
 }
