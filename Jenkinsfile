@@ -5,10 +5,10 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        echo "Welcome here" > $WORKSPACE/index.txt
-                        echo "Hello World" > $WORKSPACE/taller.txt
-                        echo "Contents of index.txt:"
-                        cat $WORKSPACE/index.txt
+                        sudo -u jenkins bash
+                        echo "Test content" > /var/lib/jenkins/workspace/Freestyle/index.txt
+                        echo "Hello World" >  /var/lib/jenkins/workspace/Freestyle/testfile.txt
+                        cat /var/lib/jenkins/workspace/Freestyle/index.txt
                         echo "Contents of taller.txt:"
                         cat $WORKSPACE/taller.txt
                     '''
