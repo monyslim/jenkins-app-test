@@ -1,25 +1,18 @@
 pipeline {
-    agent any
+    agent any  // This allows the pipeline to run on any available Jenkins agent
     stages {
-        stage("Test") {
+        stage('Setup') {
             steps {
-                echo "Welcome to Your first normal branch Jenkins-class"
-            }
-        }
-        stage("checkout something") {
-            steps {
-                sh '''
-                    echo "Welcome here" > $WORKSPACE/index.txt
-                '''
-            }
-        }
-        stage("rolling") {
-            steps {
-                sh '''
-                    echo $HOME
-                    pwd
-                    echo "Hello World" /var/lib/jenkins/workspace/Freestyle/taller.txt
-                '''
+                script {
+                    // Running shell commands to create and modify files
+                    sh '''
+                        #!/bin/bash
+                        echo "Welcome here" > $WORKSPACE/index.txt
+                        echo "Current directory:"
+                        pwd
+                        echo "Hello World" > $WORKSPACE/taller.txt
+                    '''
+                }
             }
         }
     }
