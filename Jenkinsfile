@@ -1,23 +1,33 @@
 pipeline {
     agent any
     stages {
-        stage('Write and Verify') {
+        stage('Set Permissions and Write') {
             steps {
                 script {
                     sh '''
-                        # Print the workspace directory for debugging
-                        echo "Workspace directory: $WORKSPACE"
+                        # Define the full path to the workspace
+                        FULL_PATH="/var/lib/jenkins/workspace/Freestyle"
+
+                        # Print the full path for debugging
+                        echo "Workspace directory: $FULL_PATH"
+
+                        # Ensure the Jenkins user has the correct ownership of the workspace directory
+                        echo "Changing ownership to ubuntu:jenkins..."
+                        sudo chown -R ubuntu:jenkins $FULL_PATH
+
+                        # Verify ownership
+                        ls -ld $FULL_PATH
 
                         # Write to files in the workspace
-                        echo "Test content" > $WORKSPACE/index.txt
-                        echo "Hello World" > $WORKSPACE/taller.txt
+                        echo "Test content" > $FULL_PATH/index.txt
+                        echo "Hello World" > $FULL_PATH/taller.txt
 
                         # Output the contents of the files to verify
                         echo "Contents of index.txt:"
-                        cat $WORKSPACE/index.txt
+                        cat $FULL_PATH/index.txt
 
                         echo "Contents of taller.txt:"
-                        cat $WORKSPACE/taller.txt
+                        cat $FULL_PATH/taller.txt
                     '''
                 }
             }
