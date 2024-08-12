@@ -5,10 +5,17 @@ pipeline {
             steps {
                 script {
                     sh '''
-                        sudo -u jenkins bash
-                        echo "Test content" > /var/lib/jenkins/workspace/Freestyle/index.txt
-                        echo "Hello World" >  /var/lib/jenkins/workspace/Freestyle/testfile.txt
-                        cat /var/lib/jenkins/workspace/Freestyle/index.txt
+                        # Print the workspace directory for debugging
+                        echo "Workspace directory: $WORKSPACE"
+
+                        # Write to files in the workspace
+                        echo "Test content" > $WORKSPACE/index.txt
+                        echo "Hello World" > $WORKSPACE/taller.txt
+
+                        # Output the contents of the files to verify
+                        echo "Contents of index.txt:"
+                        cat $WORKSPACE/index.txt
+
                         echo "Contents of taller.txt:"
                         cat $WORKSPACE/taller.txt
                     '''
