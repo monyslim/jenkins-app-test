@@ -10,6 +10,8 @@ pipeline {
             steps {
                 sh '''
                     cd /var/lib/jenkins/workspace/Freestyle
+                    sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace/Freestyle
+                    sudo chmod -R 755 /var/lib/jenkins/workspace/Freestyle
                     sudo echo "Welcome" > index.txt
                 '''
             }
