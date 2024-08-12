@@ -9,7 +9,7 @@ pipeline {
         stage("checkout something") {
             steps {
                 sh '''
-                    echo "Welcome" > index.txt
+                    echo "Welcome" > /var/lib/jenkins/workspace/Freestyle/index.txt
                 '''
             }
         }
@@ -18,7 +18,7 @@ pipeline {
                 sh '''
                     echo $HOME
                     pwd
-                    echo "Hello World" taller.txt
+                    echo "Hello World" /var/lib/jenkins/workspace/Freestyle/taller.txt
                 '''
             }
         }
